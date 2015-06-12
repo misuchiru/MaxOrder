@@ -1,0 +1,27 @@
+%h1 店家資訊
+.ui.horizontal.divider
+	line
+= link_to(new_store_path,:class => 'ui fluid teal labeled icon button') do
+	新增店家
+	%i.add.icon
+.ui.items
+	-@stores.each do |store|
+		.item
+			.ui.small.image
+				%img(src="http://semantic-ui.com/images/wireframe/image.png")
+			.content
+				= link_to(store.name, edit_store_path(store), :class => 'header')
+				.meta
+					%span= store.phone
+				.description
+					%p= store.description
+				.extra
+					%span= store.address
+					.ui.buttons.right.floated
+						= link_to(edit_store_path(store), :class => 'ui blue button') do
+							編輯餐點
+							%i.right.write.icon
+						.or
+						= link_to(store_path(store), :class => 'ui red button', method: :delete) do
+							刪除店家
+							%i.right.remove.icon
