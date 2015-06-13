@@ -8,7 +8,8 @@
 	-@stores.each do |store|
 		.item
 			.ui.small.image
-				%img(src="http://semantic-ui.com/images/wireframe/image.png")
+				= link_to(edit_store_path(store), :class => 'ui small image') do
+					= image_tag store.image_url(:thumb).to_s
 			.content
 				= link_to(store.name, edit_store_path(store), :class => 'header')
 				.meta

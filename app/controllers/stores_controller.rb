@@ -1,4 +1,5 @@
 class StoresController < ApplicationController
+
 	def index
 		@stores = Store.all
 	end
@@ -30,9 +31,10 @@ class StoresController < ApplicationController
 		redirect_to stores_path
 	end
 
+	
 	private
 
 	def store_params
-		params.require(:store).permit(:name, :address, :description, :phone)
+		params.require(:store).permit(:name, :address, :description, :phone, :image)
 	end
 end
