@@ -16,6 +16,11 @@
 		%label 上傳圖片
 		= f.file_field :image
 	.ui.divider
-	= button_tag(type: 'submit', class: "ui fluid teal labeled icon button") do
-		送出
-		%i.check.circle.icon
+	.ui.buttons.2.fluid
+		= button_tag(type: 'submit', class: "ui teal button") do
+			送出
+			%i.checkmark.icon
+		.or
+		= link_to(stores_path, :class => 'ui orange button') do
+			返回
+			%i.remove.icon

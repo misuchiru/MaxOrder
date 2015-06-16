@@ -1,0 +1,41 @@
+%h1 Listing contacts
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Group
+      %th Phone
+      %th Email
+      %th Title
+      %th
+      %th
+      %th
+
+  %tbody
+    - @contacts.each do |contact|
+      %tr
+        %td= contact.name
+        %td= contact.group
+        %td= contact.phone
+        %td= contact.email
+        %td= contact.title
+        %td= link_to 'Show', contact
+        %td= link_to 'Edit', edit_contact_path(contact)
+        %td= link_to 'Destroy', contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Contact', new_contact_path
+- @contacts.each do |contact|
+  .ui.three.column.grid
+    .column
+      .ui.fluid.card
+        .image
+          %img(src="/uploads/store/image/1/thumb_sky.jpg")
+        .content
+          .header= contact.name
+          .meta= contact.title
+          .description
+            %div= contact.phone
+            %div= contact.email
