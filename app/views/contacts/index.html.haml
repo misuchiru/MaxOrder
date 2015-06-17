@@ -1,41 +1,71 @@
-%h1 Listing contacts
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Group
-      %th Phone
-      %th Email
-      %th Title
-      %th
-      %th
-      %th
-
-  %tbody
-    - @contacts.each do |contact|
-      %tr
-        %td= contact.name
-        %td= contact.group
-        %td= contact.phone
-        %td= contact.email
-        %td= contact.title
-        %td= link_to 'Show', contact
-        %td= link_to 'Edit', edit_contact_path(contact)
-        %td= link_to 'Destroy', contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+%h1 
+  通訊錄
+  %i.call.icon
+.ui.divider
+.ui.buttons.2.fluid
+  = link_to(new_contact_path, :class => 'ui labeled teal icon button') do
+    新增通訊錄
+    %i.add.icon
+  .or
+  = link_to(contacts_path(format: "xls"), :class => 'ui right labeled blue icon button') do
+    下載通訊錄
+    %i.download.icon
 %br
-
-= link_to 'New Contact', new_contact_path
-- @contacts.each do |contact|
-  .ui.three.column.grid
-    .column
-      .ui.fluid.card
-        .image
-          %img(src="/uploads/store/image/1/thumb_sky.jpg")
-        .content
-          .header= contact.name
-          .meta= contact.title
-          .description
-            %div= contact.phone
-            %div= contact.email
+.ui.four.column.grid
+  - @contacts.each do |contact|
+    - case contact.groups
+      - when "高研本部"
+        .column
+          .ui.fluid.blue.card
+            .image
+              = link_to(edit_contact_path(contact), :class => 'ui image') do
+                = image_tag contact.image_url(:thumb).to_s
+            .content
+              .header= link_to contact.name, edit_contact_path(contact)
+              .meta= contact.title
+              .description
+                %div= contact.groups
+                %div= contact.phone
+                %div= contact.email
+      - when "總務部"
+        .column
+          .ui.fluid.green.card
+            .image
+              = link_to(edit_contact_path(contact), :class => 'ui image') do
+                = image_tag contact.image_url(:thumb).to_s
+            .content
+              .header= link_to contact.name, edit_contact_path(contact)
+              .meta= contact.title
+              .description
+                %div= contact.groups
+                %div= contact.phone
+                %div= contact.email
+.ui.four.column.grid
+  - @contacts.each do |contact|
+    - case contact.groups
+      - when "活動部"
+        .column
+          .ui.fluid.yellow.card
+            .image
+              = link_to(edit_contact_path(contact), :class => 'ui image') do
+                = image_tag contact.image_url(:thumb).to_s
+            .content
+              .header= link_to contact.name, edit_contact_path(contact)
+              .meta= contact.title
+              .description
+                %div= contact.groups
+                %div= contact.phone
+                %div= contact.email
+      - when "熱力部"
+        .column
+          .ui.fluid.red.card
+            .image
+              = link_to(edit_contact_path(contact), :class => 'ui image') do
+                = image_tag contact.image_url(:thumb).to_s
+            .content
+              .header= link_to contact.name, edit_contact_path(contact)
+              .meta= contact.title
+              .description
+                %div= contact.groups
+                %div= contact.phone
+                %div= contact.email
