@@ -1,31 +1,29 @@
-!!! XML
-%workbook{:xmlns => "urn:schemas-microsoft-com:office:spreadsheet", "xmlns:html" => "http://www.w3.org/TR/REC-html40", "xmlns:o" => "urn:schemas-microsoft-com:office:office", "xmlns:ss" => "urn:schemas-microsoft-com:office:spreadsheet", "xmlns:x" => "urn:schemas-microsoft-com:office:excel"}
-  %worksheet{"ss:name" => "Sheet1"}
-    %table
-      %row
-        %cell
-          %data{"ss:type" => "String"} 序
-        %cell
-          %data{"ss:type" => "String"} 姓名
-        %cell
-          %data{"ss:type" => "String"} 群組
-        %cell
-          %data{"ss:type" => "String"} 職稱
-        %cell
-          %data{"ss:type" => "String"} 電話
-        %cell
-          %data{"ss:type" => "String"} 信箱
-      - @contacts.each do |contact|
-        %row
-          %cell
-            %data{"ss:type" => "Number"}= contact.id
-          %cell
-            %data{"ss:type" => "String"}= contact.name
-          %cell
-            %data{"ss:type" => "String"}= contact.groups
-          %cell
-            %data{"ss:type" => "String"}= contact.title
-          %cell
-            %data{"ss:type" => "String"}= contact.phone
-          %cell
-            %data{"ss:type" => "String"}= contact.email
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">序</Data></Cell>
+        <Cell><Data ss:Type="String">姓名</Data></Cell>
+        <Cell><Data ss:Type="String">群組</Data></Cell>
+        <Cell><Data ss:Type="String">職稱</Data></Cell>
+        <Cell><Data ss:Type="String">電話</Data></Cell>
+        <Cell><Data ss:Type="String">信箱</Data></Cell>
+      </Row>
+    <% @contacts.each do |contact| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= contact.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.groups %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.title %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.email %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
