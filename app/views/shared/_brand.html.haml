@@ -3,3 +3,8 @@
 		=link_to(calendars_path, :class => "title item") do
 			%i.home.icon
 			2015 高中英知研習營
+		.right.menu
+			-if current_user
+				= link_to(destroy_user_session_path, :class => 'ui item', :method => :delete) do
+					%i.sign.out.icon
+					登出
