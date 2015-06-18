@@ -32,6 +32,15 @@ gem "simple_calendar", "~> 1.1.0"
 gem "rails-i18n"
 gem 'bootstrap-sass'
 gem 'devise'
+
+group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+end
+
+# 並加上稍後會使用的資料庫gem
+gem 'mysql2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
