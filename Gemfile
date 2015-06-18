@@ -30,6 +30,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem "simple_calendar", "~> 1.1.0"
 gem "rails-i18n"
+gem 'bootstrap-sass'
+gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
