@@ -11,15 +11,6 @@ td.day{
 		padding:0.4em 0.4em;
 		border-radius: 1rem;
 	}
-	> div:nth-child(2){
-	background-color:rgb(228,249,255);
-	}
-	> div:nth-child(3){
-	background-color:green;
-	}
-	> div:nth-child(4){
-	background-color:green;
-	}
 }
 
 td.today{
@@ -36,4 +27,19 @@ td.next-month{
 }
 .calendar-header{
 	font-size: 24px;
+}
+.cal-blue{
+	background-color: #87B8EB;
+}
+.cal-red{
+	background-color: #FAC0C2;
+}
+.cal-green{
+	background-color: #D8F8B4;
+}
+.cal-yellow{
+	background-color: #FBF9C1;
+}
+.cal-orange{
+	background-color: #EBBA87;
 }

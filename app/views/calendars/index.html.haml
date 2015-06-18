@@ -10,7 +10,7 @@
   %div.ui.label
     = date.strftime("%d")
   - calendars.each do |calendar|
-    %div
+    %div{:class => calendar_color(calendar.group)}
       %i.tag.icon
       = link_to calendar.name, edit_calendar_path(calendar)
       %br

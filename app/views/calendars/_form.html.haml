@@ -5,13 +5,16 @@
       %ul
         - @calendar.errors.full_messages.each do |msg|
           %li= msg
-  .two.fields
+  .three.fields
     .field
       %label 名稱
       = f.text_field :name
     .field
       %label 地點
       = f.text_field :place
+    .field
+      %label 部別
+      = f.text_field :group
   .five.fields
     = f.datetime_select :starts_at, {:datetime_separator => "", :time_separator => "", minute_step: 15}, {:class => "ui search dropdown field"}
     / = f.time_select :starts_at, {:time_separator => "",minute_step: 15}, {:class => "ui search dropdown field"}
