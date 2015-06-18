@@ -27,7 +27,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'carrierwave'
-gem 'rmagick'
+# gem 'rmagick'
 gem "simple_calendar", "~> 1.1.0"
 gem "rails-i18n"
 gem 'bootstrap-sass'
