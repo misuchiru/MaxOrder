@@ -1,0 +1,15 @@
+.ui.four.column.grid
+  - @contacts.each do |contact|
+    - if contact.groups == "高研本部"
+      .column
+        .ui.fluid.blue.card
+          .image
+            = link_to(edit_contact_path(contact), :class => 'ui image') do
+              = image_tag contact.image_url(:thumb).to_s
+          .content
+            .header= link_to contact.name, edit_contact_path(contact)
+            .meta= contact.title
+            .description
+              %div= contact.groups
+              %div= contact.phone
+              %div= contact.email

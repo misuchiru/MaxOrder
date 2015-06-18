@@ -15,10 +15,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require semantic
+//= require bootstrap
 //= require_tree .
-// $(document).ready(function(){
-// 	$('.ui .item').on('click', function() {
-// 		$('.ui .item').removeClass('active');
-// 		$(this).addClass('active');
-// 	});
-// });
+$('.context.example .ui.sidebar')
+  .sidebar({
+    context: $('.context.example .bottom.segment')
+  })
+  .sidebar('attach events', '.context.example .menu .item')
+;

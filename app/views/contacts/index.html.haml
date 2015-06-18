@@ -11,61 +11,26 @@
     下載通訊錄
     %i.download.icon
 %br
-.ui.four.column.grid
-  - @contacts.each do |contact|
-    - case contact.groups
-      - when "高研本部"
-        .column
-          .ui.fluid.blue.card
-            .image
-              = link_to(edit_contact_path(contact), :class => 'ui image') do
-                = image_tag contact.image_url(:thumb).to_s
-            .content
-              .header= link_to contact.name, edit_contact_path(contact)
-              .meta= contact.title
-              .description
-                %div= contact.groups
-                %div= contact.phone
-                %div= contact.email
-      - when "總務部"
-        .column
-          .ui.fluid.green.card
-            .image
-              = link_to(edit_contact_path(contact), :class => 'ui image') do
-                = image_tag contact.image_url(:thumb).to_s
-            .content
-              .header= link_to contact.name, edit_contact_path(contact)
-              .meta= contact.title
-              .description
-                %div= contact.groups
-                %div= contact.phone
-                %div= contact.email
-.ui.four.column.grid
-  - @contacts.each do |contact|
-    - case contact.groups
-      - when "活動部"
-        .column
-          .ui.fluid.yellow.card
-            .image
-              = link_to(edit_contact_path(contact), :class => 'ui image') do
-                = image_tag contact.image_url(:thumb).to_s
-            .content
-              .header= link_to contact.name, edit_contact_path(contact)
-              .meta= contact.title
-              .description
-                %div= contact.groups
-                %div= contact.phone
-                %div= contact.email
-      - when "熱力部"
-        .column
-          .ui.fluid.red.card
-            .image
-              = link_to(edit_contact_path(contact), :class => 'ui image') do
-                = image_tag contact.image_url(:thumb).to_s
-            .content
-              .header= link_to contact.name, edit_contact_path(contact)
-              .meta= contact.title
-              .description
-                %div= contact.groups
-                %div= contact.phone
-                %div= contact.email
+%ul.nav.nav-tabs(id = "myTab" role="tablist")
+  %li.active.time
+    %a.labelTab(href = "#tab1" data-toggle = "tab" )
+      高研本部
+  %li
+    %a.labelTab(href = "#tab2" data-toggle = "tab" role="tab")
+      總務部
+  %li
+    %a.labelTab(href = "#tab3" data-toggle = "tab" role="tab")
+      活動部
+  %li
+    %a.labelTab(href = "#tab4" data-toggle = "tab" role="tab")
+      熱力部
+%br   
+#myTabContent.tab-content
+  #tab1.tab-pane.fade.in.active
+    = render 'tab1'
+  #tab2.tab-pane.fade.in
+    = render 'tab2'
+  #tab3.tab-pane.fade.in
+    = render 'tab3'
+  #tab4.tab-pane.fade.in
+    = render 'tab4'
