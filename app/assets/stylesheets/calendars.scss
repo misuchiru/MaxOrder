@@ -1,0 +1,39 @@
+// Place all the styles related to the calendars controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.calendar td {
+	height: 100px;
+	width: 14.28%; 
+}
+td.day{
+	vertical-align: top !important; 
+	> div.ui.label{
+		padding:0.4em 0.4em;
+		border-radius: 1rem;
+	}
+	> div:nth-child(2){
+	background-color:rgb(228,249,255);
+	}
+	> div:nth-child(3){
+	background-color:green;
+	}
+	> div:nth-child(4){
+	background-color:green;
+	}
+}
+
+td.today{
+	> div.ui.label{
+	background-color: red;
+	color: white;
+	}
+}
+td.prev-month{
+	background-color: gray;
+}
+td.next-month{
+	background-color: gray;
+}
+.calendar-header{
+	font-size: 24px;
+}

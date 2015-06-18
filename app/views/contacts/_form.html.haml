@@ -1,0 +1,36 @@
+= form_for @contact do |f|
+  - if @contact.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
+      %ul
+        - @contact.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    %label 名稱
+    = f.text_field :name
+  .two.fields
+    .field
+      %label 群組
+      = f.text_field :groups
+    .field
+      %label 職稱 
+      = f.text_field :title
+  .two.fields
+    .field
+      %label 電話
+      = f.text_field :phone
+    .field
+      %label 信箱
+      = f.text_field :email
+  .field
+    %label 上傳圖片
+    = f.file_field :image
+  .ui.divider
+    .ui.buttons.2.fluid
+      = button_tag(type: 'submit', class: "ui teal button") do
+        送出
+        %i.checkmark.icon
+      .or
+      = link_to(contacts_path, :class => 'ui blue button') do
+        返回
+        %i.reply.icon

@@ -1,0 +1,26 @@
+= form_for @store do |f|
+	.two.fields
+		.field
+			%label 名稱
+			= f.text_field :name
+		.field
+			%label 電話
+			= f.text_field :phone
+	.field
+		%label 地址
+		= f.text_field :address
+	.field
+		%label 備註
+		= f.text_area :description
+	.field
+		%label 上傳圖片
+		= f.file_field :image
+	.ui.divider
+	.ui.buttons.2.fluid
+		= button_tag(type: 'submit', class: "ui teal button") do
+			送出
+			%i.checkmark.icon
+		.or
+		= link_to(stores_path, :class => 'ui orange button') do
+			返回
+			%i.remove.icon

@@ -1,0 +1,21 @@
+%h1 
+  登入
+  %i.sign.in.icon
+.ui.horizontal.divider
+  帳號資訊
+.ui.form
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      %label 帳號
+      = f.text_field :account, autofocus: true
+    .field
+      %label 密碼
+      = f.password_field :password, autocomplete: "off"
+    / - if devise_mapping.rememberable?
+    /   .field
+    /     = f.check_box :remember_me
+    /     = f.label :remember_me
+    = button_tag(type: 'submit', class: "ui fluid teal labeled icon button") do
+      登入
+      %i.checkmark.icon
+/ = render "devise/shared/links"

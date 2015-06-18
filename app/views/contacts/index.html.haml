@@ -1,0 +1,36 @@
+%h1 
+  通訊錄
+  %i.call.icon
+.ui.divider
+.ui.buttons.2.fluid
+  = link_to(new_contact_path, :class => 'ui labeled teal icon button') do
+    新增通訊錄
+    %i.add.icon
+  .or
+  = link_to(contacts_path(format: "xls"), :class => 'ui right labeled blue icon button') do
+    下載通訊錄
+    %i.download.icon
+%br
+%ul.nav.nav-tabs.nav-justified(id = "myTab" role="tablist")
+  %li.active.time
+    %a.labelTab(href = "#tab1" data-toggle = "tab" )
+      高研本部
+  %li
+    %a.labelTab(href = "#tab2" data-toggle = "tab" role="tab")
+      總務部
+  %li
+    %a.labelTab(href = "#tab3" data-toggle = "tab" role="tab")
+      活動部
+  %li
+    %a.labelTab(href = "#tab4" data-toggle = "tab" role="tab")
+      熱力部
+%br   
+#myTabContent.tab-content
+  #tab1.tab-pane.fade.in.active
+    = render 'tab1'
+  #tab2.tab-pane.fade.in
+    = render 'tab2'
+  #tab3.tab-pane.fade.in
+    = render 'tab3'
+  #tab4.tab-pane.fade.in
+    = render 'tab4'

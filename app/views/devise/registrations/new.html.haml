@@ -1,0 +1,29 @@
+%h1 
+  註冊
+  %i.add.user.icon
+.ui.horizontal.divider
+  帳號資訊
+.ui.form
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .field
+      %label 帳號
+      = f.text_field :account, autofocus: true
+    .field
+      %label 信箱
+      = f.email_field :email
+    .field
+      %label 密碼
+      - if @validatable
+        %em
+          (密碼長度至少 #{@minimum_password_length}位)
+      %br/
+      = f.password_field :password, autocomplete: "off"
+    .field
+      %label 密碼確認
+      = f.password_field :password_confirmation, autocomplete: "off"
+    = button_tag(type: 'submit', class: "ui fluid teal labeled icon button") do
+      註冊
+      %i.checkmark.icon
+    
+= render "devise/shared/links"

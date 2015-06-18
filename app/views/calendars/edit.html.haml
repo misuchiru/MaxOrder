@@ -1,0 +1,9 @@
+%h1 編輯行事曆
+/ .div
+/ 	= link_to(calendar_path(@calendar), :class => 'ui right floated red button', method: :delete) do
+/ 		刪除
+/ 		%i.right.remove.icon
+.ui.horizontal.divider
+	行事曆內容
+.ui.form
+	= render 'form'

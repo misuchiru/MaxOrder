@@ -2,21 +2,4 @@
 .ui.horizontal.divider
 	店家資訊
 .ui.form
-	= form_for @store do |f|
-		.two.fields
-			.field
-				= f.label :name
-				= f.text_field :name
-			.field
-				= f.label :phone
-				= f.text_field :phone
-		.field
-			= f.label :address
-			= f.text_field :address
-		.field
-			= f.label :description
-			= f.text_area :description
-		.ui.divider
-		= button_tag(type: 'submit', class: "ui fluid teal labeled icon button") do
-			送出
-			%i.check.circle.icon
+	= render 'form'
