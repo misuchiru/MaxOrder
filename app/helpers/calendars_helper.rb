@@ -5,6 +5,8 @@ module CalendarsHelper
 				return "cal-red" 
 			when "活動部" 
 				return "cal-yellow"
+			when "總務部" 
+				return "cal-green"	
 			when "本部" 
 				return "cal-blue"
 			else "其他" 
