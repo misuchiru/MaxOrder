@@ -1,8 +1,13 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'MaxOrder'
+set :repo_url, 'git@bitbucket.org:perryHaHa/maxorder.git'
+role :web, %w{perry@104.199.159.192}
+
+set :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

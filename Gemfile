@@ -38,7 +38,6 @@ group :development do
   gem 'capistrano-passenger'
 end
 
-# 並加上稍後會使用的資料庫gem
 gem 'mysql2'
 
 group :development, :test do
